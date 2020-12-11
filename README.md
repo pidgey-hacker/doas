@@ -14,19 +14,6 @@ Installing doas is accomplished in three steps:
 2. Compiling and installing the doas utility.
 3. Creating a configuration file for doas.
 
-## Installation via packages/repositories:
-
-[For Arch Linux users (and Arch-based distributions) there is a package available in the AUR:](https://aur.archlinux.org/packages/doas/)
-```
- ~ git clone https://aur.archlinux.org/doas.git
- ~ cd doas
- ~ makepkg -si
-```
-
-The doas command is in FreeBSD's ports collection and may be installed by simply running the following command as the root user:
-
-      pkg install doas
-
 
 ## Installing build tools
 
@@ -36,9 +23,6 @@ The doas command is in FreeBSD's ports collection and may be installed by simply
 
      sudo apt install build-essential make bison flex libpam0g-dev 
     
-#### macOS
-
-     xcode-select --install
 
 ## Compiling and installing
 
@@ -47,21 +31,7 @@ The doas command is in FreeBSD's ports collection and may be installed by simply
 #### Linux
 
      make
-    
-#### FreeBSD, NetBSD and macOS
-
-     gmake
-
-#### illumos
-
-     PREFIX=/opt/local gmake
-
-Alternatively, bison can be used if yacc is not installed.
-
-     YACC="bison -y" PREFIX=/opt/local gmake
-   
-This builds the source code. Then, as the root user, run
-
+ 
 #### Linux
 
      make install
@@ -69,24 +39,7 @@ This builds the source code. Then, as the root user, run
 Note to Linux users: Some Linux distributions, such as CentOS, will block doas from using PAM authentication by default. If this happens, it is usually possible to work around the issue by running the following command as the administrator:
 
       cp /etc/pam.d/sudo /etc/pam.d/doas
-
-
-#### FreeBSD and NetBSD 
-
-     gmake install
-
-#### macOS
-
-     gmake install
-     cp /etc/pam.d/sudo /etc/pam.d/doas
-
-Note: By default macOS blocks doas from using PAM modules, causing doas authentication to fail. The cp command above copies the sudo PAM configuration into place for doas to use.
-
-
-#### illumos
-
-     PREFIX=/opt/local gmake install
-
+      
 
 ## Creating a configuration file
 
